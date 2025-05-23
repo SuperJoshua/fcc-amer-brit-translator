@@ -1881,10 +1881,10 @@ module.exports = {
    "yodeling": "yodelling",
    "yogurt": "yoghurt",
    "yogurts": "yoghurts",
-   'mr.': 'mr',
-   'mrs.': 'mrs',
-   'ms.': 'ms',
-   'mx.': 'mx',
-   'dr.': 'dr',
-   'prof.': 'prof'
+   'mr.': 'Mr',
+   'mrs.': 'Mrs',
+   'ms.': 'Ms',
+   'mx.': 'Mx',
+   'dr.': 'Dr',
+   'prof.': 'Prof'
 }

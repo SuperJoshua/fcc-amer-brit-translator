@@ -37,20 +37,20 @@ function translate(text, locale) {
       }
       default: {
          // this shouldn't be reachable
-         throw new Error("invalid locale request")
+         throw new Error("invalid locale request somehow made it into translate")
       }
    }
 
    // Uncertain how to go about this. The dictionaries have replacements up to three words in length and include hyphens and periods. Make an unweildly regular expression and try to get everything in one go? Maybe three passes looking for 1, 2, and 3-word matches? Plus there are the titles and times to deal with. 
    let translation = text.replaceAll(/\b[a-z.-]+/gi, replacer)
    
-   if (text === translation) {translation =  "Everything looks good to me!"}
+   if (text === translation) {translation = "Everything looks good to me!"}
    
    return {text, translation}
 }
 
 function replacer(string) {
-   if (dict[string]) {return dict[string]}
+   if (dict[string].toLowerCase()) {return `<span class="highlight">${dict[string]}</span>`}
    else {return string}
 }
 
