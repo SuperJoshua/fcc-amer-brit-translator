@@ -1,13 +1,25 @@
-'use strict';
+"use strict"
 
-const Translator = require('../components/translator.js');
+// const translator = new Translator()
+const translate = require("../components/translator.js")
 
 module.exports = function (app) {
-  
-  const translator = new Translator();
+   app.route("/api/translate")
+   .post(function(req, res){
+      if (!(Object.hasOwn(req.body, "text") && Object.hasOwn(req.body, "locale"))) {
+         res.send({"error": "Required field(s) missing"})
+      }
 
-  app.route('/api/translate')
-    .post((req, res) => {
-      
-    });
-};
+      else if (req.body.text === '') {
+         res.send({"error": "No text to translate"})
+      }
+
+      else if (!(req.body.locale === "american-to-british" || req.body.locale === "british-to-american")) {
+         res.send({"error": "Invalid value for locale field"})
+      }
+
+      else {
+         res.send(translate(req.body.text, req.body.locale))
+      }
+   })
+}
