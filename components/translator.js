@@ -1,22 +1,12 @@
-;"use strict"
+"use strict"
 
 /*
-const americanOnly = require("./american-only.js")
-const americanToBritishSpelling = require("./american-to-british-spelling.js")
-const americanToBritishTitles = require("./american-to-british-titles.js")
-const britishOnly = require("./british-only.js")
-
-class Translator {
-
-}
-
-module.exports = Translator
+Why am I expected to use a class instead of a function?
+   I'm using a function.
+   
+Why four dictionaries instead of two? Why aren't they mirrored -- because they're not one-to-one?
+   I'm using custom dictionaries; I didn't mirror them.
 */
-
-// Why am I expected to use a class instead of a function?
-//    I'm using a function.
-// Why four dictionaries instead of two? Why aren't they mirrored -- because they're not one-to-one?
-//    I'm using custom dictionaries; I didn't mirror them.
 
 const a2bdict = require("./a2bdict.js")
 const b2adict = require("./b2adict.js")
@@ -46,9 +36,6 @@ function translate(text, locale) {
       }
    }
 
-   // This only worked for one word matches. I couldn't figure out how to get regular expressions to do what I wanted. So I went with something that I understood better -- arrays.
-   // translation = translation.replaceAll(/\b\w+\b/gi, replacer)
-   
    // This is a hack, and certainly should be refactored. But I'm not enjoying this task, and I'm not getting paid for it.
    const raw_arr = translation.split(' ')
    const new_arr = []
