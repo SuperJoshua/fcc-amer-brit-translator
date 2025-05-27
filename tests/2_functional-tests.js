@@ -14,7 +14,7 @@ suite("Functional Tests", function () {
       .send({"text": "Mangoes are my favorite fruit.", "locale": "american-to-british"})
       .end(function (err, res) {
          assert.equal(res.status, 200)
-         assert.strictEqual(res.body.translation, "Mangoes are my favourite fruit.")
+         assert.strictEqual(res.body.translation, `Mangoes are my <span class="highlight">favourite</span> fruit.`)
          done()
       })
    })
